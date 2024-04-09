@@ -1,7 +1,6 @@
 ﻿// StarryPCA. Version 0.1.0 Alpha. RCSZ.
 // LLCL: OpenCL 3.0
 // C++17 x64 Release.
-// StarryPCA 是一个轻量化以 OpenCL 为底层封装的多设备并行计算加速库.
 
 #include <iostream>
 
@@ -48,6 +47,7 @@ int main() {
 	DemoCalc.SpcaAllocWorkgroup(8, 8);
 	DemoCalc.SpcaSetCalcDevice(0);
 
+	// 设置矩阵属性(配置内存对象)
 	DemoCalc.SpcaPushMatrixAttrib(DemoMatrixInSize[0], DemoMatrixInSize[1], InputMatrix);
 
 	DemoCalc.SpcaPushMatrixAttrib(DemoConvKernelASize[0], DemoConvKernelASize[1], InputMatrix);
@@ -57,8 +57,10 @@ int main() {
 
 	DemoCalc.SpcaPushMatrixAttrib(DemoMatrixOutSize[0], DemoMatrixOutSize[1], OutputMatrix);
 
+	// 创建内存对象
 	DemoCalc.SpcaCreateMemoryOBJ();
 
+	// 写入数据(顺序一定要跟设置时的一样)
 	DemoCalc.SpcaPushMatrixData(DemoMatIn);
 	DemoCalc.SpcaPushMatrixData(DemoConvMatA);
 	DemoCalc.SpcaPushMatrixData(DemoConvMatB);
