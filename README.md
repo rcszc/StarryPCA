@@ -12,4 +12,4 @@ __Update:__ 2024.04.09 __Version:__ 0.1
 
 Demo为计算两层叠加卷积16384x16384矩阵, 卷积核都为32x32
 
-<img src="SPCA_HEAD.png"/>
+<img src="SPCA_LOGO.png"/>
