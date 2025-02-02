@@ -11,7 +11,7 @@
 #include <condition_variable>
 #include <future>
 
-#include "spca_system_tool/spca_tool_logger.h"
+#include "spca_system_tool/spca_tool_logger.hpp"
 
 #define MODULE_LABEL_THDPOOL "SPCA_TASKS"
 
@@ -72,11 +72,11 @@ namespace SpcaTasks {
     public:
         ThreadTasks(uint32_t init_workers) {
             ThreadsTaskExecution(init_workers);
-            LOGCONS::PushLogger(LogInfo, MODULE_LABEL_THDPOOL, "create thread_pool workers: %u", init_workers);
+            PSAG_LOGGER::PushLogger(LogInfo, MODULE_LABEL_THDPOOL, "create thread_pool workers: %u", init_workers);
         };
         ~ThreadTasks() {
             ThreadsTaskFree();
-            LOGCONS::PushLogger(LogInfo, MODULE_LABEL_THDPOOL, "close(free) thread_pool workers.");
+            PSAG_LOGGER::PushLogger(LogInfo, MODULE_LABEL_THDPOOL, "close(free) thread_pool workers.");
         };
 
         // thread_pool: push => tasks queue.
